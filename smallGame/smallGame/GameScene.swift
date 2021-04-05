@@ -7,13 +7,12 @@
 
 import SpriteKit
 import GameplayKit
-import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player = SKSpriteNode()
     var goal = SKSpriteNode()
-    var orientation = SKLabelNode()
+//    var orientation = SKLabelNode()
     
     var gravityValue:CGFloat = -9.81
 
@@ -22,7 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player = self.childNode(withName: "player")! as! SKSpriteNode
         goal = self.childNode(withName: "goal")! as! SKSpriteNode
-        orientation = self.childNode(withName: "orientation") as! SKLabelNode
+//        orientation = self.childNode(withName: "orientation") as! SKLabelNode
         
         
         let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -51,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func changeGravity(){
-        orientation.text = String(UIDevice.current.orientation.rawValue)
+//        orientation.text = String(UIDevice.current.orientation.rawValue)
         switch (UIDevice.current.orientation){
         case .landscapeLeft:
             physicsWorld.gravity = CGVector(dx: gravityValue, dy: 0)

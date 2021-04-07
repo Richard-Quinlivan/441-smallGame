@@ -23,10 +23,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         goal = self.childNode(withName: "goal")! as! SKSpriteNode
 //        orientation = self.childNode(withName: "orientation") as! SKLabelNode
         
+        let x: CGFloat = self.frame.origin.x
+        let y: CGFloat = self.frame.origin.y + 100
+        let width = self.frame.width
+        let height = self.frame.height
         
-        let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
+        let outsideEdge = CGRect(x: x, y: y, width: width, height: height)
+
+        let boarder = SKPhysicsBody(edgeLoopFrom: outsideEdge)
         boarder.friction = 0
-        boarder.restitution = 1
+        boarder.restitution = 0.6
         
         self.physicsBody = boarder
     }
@@ -42,7 +48,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if (nodeA.name == "goal" && nodeB.name == "player"){
             youWin()
         }
-//        print("Collision")
     }
     
     func youWin(){
@@ -77,6 +82,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         changeGravity()
-        
     }
 }

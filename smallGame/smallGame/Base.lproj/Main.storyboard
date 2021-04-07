@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Start View Controller-->
+        <!--View Controller-->
         <scene sceneID="vxN-Hv-aJQ">
             <objects>
-                <viewController id="Fub-ik-oFR" customClass="StartViewController" customModule="smallGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fub-ik-oFR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Bv-yb-36G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" modalPresentationStyle="fullScreen" id="gb3-cJ-e7o"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtB-P2-sqT">
                                 <rect key="frame" x="131" y="376" width="112" height="39"/>
@@ -70,34 +73,63 @@
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ein-lb-HNu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="342" y="99"/>
         </scene>
-        <!--Instructions View Controller-->
+        <!--View Controller-->
         <scene sceneID="7Oa-pO-kH6">
             <objects>
-                <viewController id="Dh2-ef-7rK" customClass="InstructionsViewController" customModule="smallGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dh2-ef-7rK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zeH-58-fqt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvw-4h-RHP">
-                                <rect key="frame" x="111" y="90" width="152" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Turn your phone the change gravity.  Hit the green square to win!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-D9-9xU">
+                                <rect key="frame" x="71" y="240" width="232" height="249"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvw-4h-RHP">
+                                <rect key="frame" x="52" y="93" width="271" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HeR-zY-2Zy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstItem="HeR-zY-2Zy" firstAttribute="trailing" secondItem="Yvw-4h-RHP" secondAttribute="trailing" constant="112" id="72l-ZN-xA0"/>
+                            <constraint firstItem="WWG-D9-9xU" firstAttribute="centerX" secondItem="HeR-zY-2Zy" secondAttribute="centerX" id="80f-iC-JG4"/>
+                            <constraint firstItem="Yvw-4h-RHP" firstAttribute="centerX" secondItem="HeR-zY-2Zy" secondAttribute="centerX" id="Kkl-RN-g1e"/>
+                            <constraint firstItem="HeR-zY-2Zy" firstAttribute="trailing" secondItem="Yvw-4h-RHP" secondAttribute="trailing" constant="52" id="Xfd-Le-g4r"/>
+                            <constraint firstItem="WWG-D9-9xU" firstAttribute="top" secondItem="HeR-zY-2Zy" secondAttribute="top" constant="240" id="kKc-BY-Kml"/>
+                            <constraint firstItem="Yvw-4h-RHP" firstAttribute="top" secondItem="HeR-zY-2Zy" secondAttribute="top" constant="90" id="wFC-iU-17X"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dV8-3E-Ap3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="815"/>
+            <point key="canvasLocation" x="341.60000000000002" y="814.54272863568224"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kBq-W0-0BG">
+            <objects>
+                <viewController id="nw4-a3-5Sq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pz0-Lu-1ZF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dmg-aX-3AO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3pm-sq-IUj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228" y="99"/>
         </scene>
     </scenes>
     <resources>
@@ -106,6 +138,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

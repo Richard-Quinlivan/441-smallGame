@@ -85,9 +85,7 @@ class EndViewController: UIViewController {
     }
     
     func addScore(score : Float){
-//        print(score)
         scores.append(score)
-//        print(scores)
         table.reloadData()
     }
     

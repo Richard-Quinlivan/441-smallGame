@@ -12,7 +12,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player = SKSpriteNode()
     var goal = SKSpriteNode()
-//    var orientation = SKLabelNode()
+    public var timer = SKLabelNode()
     
     var gravityValue:CGFloat = -9.81
 
@@ -21,12 +21,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player = self.childNode(withName: "player")! as! SKSpriteNode
         goal = self.childNode(withName: "goal")! as! SKSpriteNode
-//        orientation = self.childNode(withName: "orientation") as! SKLabelNode
+        timer = self.childNode(withName: "Timer")! as! SKLabelNode
         
         let x: CGFloat = self.frame.origin.x
         let y: CGFloat = self.frame.origin.y + 100
         let width = self.frame.width
-        let height = self.frame.height
+        let height = self.frame.height - 200
         
         let outsideEdge = CGRect(x: x, y: y, width: width, height: height)
 
@@ -35,6 +35,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         boarder.restitution = 0.6
         
         self.physicsBody = boarder
+        
+        
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(changeTimer), userInfo: nil, repeats: true)
+    }
+    
+    
+    @objc func changeTimer(){
+        let floatTimer = Float(timer.text!)
+        timer.text = String(format: "%.1f", floatTimer! + 0.1)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -51,7 +60,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func youWin(){
-        print("You Win")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.time = Float(String(timer.text!))!
+        self.view?.window?.rootViewController?.performSegue(withIdentifier: "ToEndScreen", sender: Any?.self)
     }
     
     func changeGravity(){

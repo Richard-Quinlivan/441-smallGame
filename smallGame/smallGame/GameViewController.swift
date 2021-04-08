@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +23,29 @@ class GameViewController: UIViewController {
                 view.presentScene(scene)
             }
             
-            view.ignoresSiblingOrder = true
+//            let story = UIStoryboard(name: "Main", bundle:nil)
+//            let vc = self
+            UIApplication.shared.windows.first?.rootViewController = self
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
             
+            
+            view.ignoresSiblingOrder = true
+
 //            view.showsFPS = true
 //            view.showsNodeCount = true
         }
     }
-
-    override var shouldAutorotate: Bool {
-        return true
-    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier == "ToEndScreen"){
+//            let endScreen = segue.destination as! EndViewController
+//            
+//        }
+//    }
+//
+//    override var shouldAutorotate: Bool {
+//        return true
+//    }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
